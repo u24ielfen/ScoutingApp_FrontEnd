@@ -32,7 +32,7 @@ function App() {
           path="/teams"
           element={
             <>
-              <Header name="Teams" />
+              <Header name="Thingiiieis" />
               <Teams />
               <Footer />
             </>
