@@ -1,18 +1,18 @@
 import React from "react";
-import Header from "./Header.js";
+import Header from "./Components/Header.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Footer from "./Footer";
+import Footer from "./Components/Footer.js";
 import Pit from "./Pit";
 import Home from "./Home.js";
-import Teams from "./Teams.js";
-import Main from "./Stats.js";
-import TeamStats from "./TeamStats.js";
-import Scouting from "./Scouting.js";
-import AddMatch from "./AddMatch.js";
-import Games from "./Games.js";
-import MatchTypeSelector from "./RegisterM_HHeader";
-import AddTeam_HHeader from "./AddTeam_HHeader.js";
-import EditTeam from "./EditTeam.js";
+import Teams from "./Teams/Teams.js";
+import Main from "./Stats/Stats.js";
+import TeamStats from "./Teams/TeamStats.js";
+import Scouting from "./Matches/Scouting.js";
+import AddMatch from "./Matches/AddMatch.js";
+import Games from "./Matches/Games.js";
+import MatchTypeSelector from "./Matches/RegisterM_HHeader.js";
+import AddTeam_HHeader from "./Components/AddTeam_HHeader.js";
+import EditTeam from "./Teams/EditTeam.js";
 import Users from "./Users.js";
 function App() {
   return (
@@ -32,14 +32,14 @@ function App() {
           path="/teams"
           element={
             <>
-              <Header name="Thingiiieis" />
+              <Header name="Team" />
               <Teams />
               <Footer />
             </>
           }
         ></Route>
         <Route
-          path="/pitStats"
+          path="/averageStats"
           element={
             <>
               <Header name="Team Statistics" />

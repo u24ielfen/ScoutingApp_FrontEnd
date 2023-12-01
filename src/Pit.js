@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 function Match() {
-  const port = "192.168.68.164";
+  const port = "localhost";
 
   const [teamNumber, setTeamNumber] = useState();
   const [teamName, setTeamName] = useState();
@@ -64,8 +64,8 @@ function Match() {
       notes: notes,
     }).then(() => {});
     Axios.post(`http://${port}:3002/addTeam`, {
-      team_number: teamNumber,
       team_name: teamName,
+      team_number: teamNumber,
     }).then(() => {});
     window.location.href = `http://${port}:3000/`;
   };
