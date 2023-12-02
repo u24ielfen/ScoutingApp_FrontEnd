@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 function Teams() {
-  const port = "localhost";
+  const port = "192.168.68.151";
 
   const [teamsList, setTeamsList] = useState([]);
   useEffect(() => {

@@ -2,7 +2,7 @@ import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 function TeamStats() {
-  const port = "localhost";
+  const port = "192.168.68.151";
 
   const params = useParams("/teams/:id");
   const { id } = params;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 function Scouting() {
-  const port = "localhost";
+  const port = "192.168.68.151";
   const [matchNumber, setMatchNumber] = useState();
   const [matchType, setMatchType] = useState();
   const [teamNumber, setTeamNumber] = useState();
@@ -85,17 +85,15 @@ function Scouting() {
   };
   return (
     <>
-      <br />
       <div
         className="container d-flex"
         style={{
           backgroundColor: "rgb(245, 245, 245)",
-          marginTop: "-42px",
-          paddingTop: "20px",
+          marginTop: "-8px",
           paddingBottom: "20px",
         }}
       >
-        <div className="row">
+        <div className="row" style={{ marginTop: "10px" }}>
           {" "}
           <div className="col-1">
             <i

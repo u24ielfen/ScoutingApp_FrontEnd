@@ -33,7 +33,7 @@ function Footer() {
         </div>
         {/* Stats */}
         <div className="mt-2 col-2">
-          <NavLink to="/averageStats">
+          <NavLink to="/stats">
             <i
               class="fa-solid fa-chart-column fa-xl"
               style={{ color: "black" }}

@@ -10,10 +10,12 @@ import TeamStats from "./Teams/TeamStats.js";
 import Scouting from "./Matches/Scouting.js";
 import AddMatch from "./Matches/AddMatch.js";
 import Games from "./Matches/Games.js";
-import MatchTypeSelector from "./Matches/RegisterM_HHeader.js";
-import AddTeam_HHeader from "./Components/AddTeam_HHeader.js";
+import MatchHeader from "./Matches/MatchHeader.js";
 import EditTeam from "./Teams/EditTeam.js";
 import Users from "./Users.js";
+import Rank from "./Stats/Rank.js";
+import Compare from "./Stats/Compare.js";
+import StatsHeader from "./Stats/StatsHeader.js";
 function App() {
   return (
     <Router>
@@ -32,19 +34,42 @@ function App() {
           path="/teams"
           element={
             <>
-              <Header name="Team" />
+              <Header name="Team" link="/" />
               <Teams />
               <Footer />
             </>
           }
         ></Route>
         <Route
-          path="/averageStats"
+          path="/stats"
           element={
             <>
               <Header name="Team Statistics" />
+              <StatsHeader type="stats" />
               <Main />
               <Footer />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/rank"
+          element={
+            <>
+              <Header name="Rank Teams"></Header>
+              <StatsHeader type="rank" />
+              <Rank></Rank>
+              <Footer></Footer>
+            </>
+          }
+        ></Route>
+        <Route
+          path="/compare"
+          element={
+            <>
+              <Header name="Compare Teams"></Header>
+              <StatsHeader type="compare" />
+              <Compare></Compare>
+              <Footer></Footer>
             </>
           }
         ></Route>
@@ -62,7 +87,7 @@ function App() {
           path="/team/:id"
           element={
             <>
-              <Header />
+              <Header link="/teams" />
               <TeamStats />
               <Footer />
             </>
@@ -72,7 +97,7 @@ function App() {
           path="/games/team/:id"
           element={
             <>
-              <Header />
+              <Header link="/games" />
               <TeamStats />
               <Footer />
             </>
@@ -83,7 +108,7 @@ function App() {
           element={
             <>
               <Header name="Edit Team" />
-              <EditTeam />
+              <EditTeam link="/teams" />
               <Footer />
             </>
           }
@@ -93,17 +118,9 @@ function App() {
           element={
             <>
               <Header name="Match Scouting" />
-              <MatchTypeSelector active="register" />
+              <MatchHeader type="register" />
               <AddMatch />
               <Footer />
-            </>
-          }
-        ></Route>
-        <Route
-          path="/users"
-          element={
-            <>
-              <Header /> <Users /> <Footer />
             </>
           }
         ></Route>
@@ -112,12 +129,20 @@ function App() {
           element={
             <>
               <Header name="Match Info" />
-              <AddTeam_HHeader />
+              <MatchHeader type="addTeam" />
               <Scouting />
               <Footer />
             </>
           }
         />
+        <Route
+          path="/users"
+          element={
+            <>
+              <Header /> <Users /> <Footer />
+            </>
+          }
+        ></Route>
 
         <Route
           path="/games"

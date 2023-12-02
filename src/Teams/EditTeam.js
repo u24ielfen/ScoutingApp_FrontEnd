@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import TeamStats from "./TeamStats";
 
 function EditTeam() {
-  const port = "localhost";
+  const port = "192.168.68.151";
 
   const params = useParams("/editTeam/:id");
   const { id } = params;
