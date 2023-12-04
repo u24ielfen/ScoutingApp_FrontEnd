@@ -3,7 +3,7 @@ import Axios from "axios";
 import { NavLink } from "react-router-dom";
 
 function Games() {
-  const port = "192.168.68.151";
+  const port = "10.70.1.129";
 
   const [matchList, setMatchList] = useState([]);
   const [match_type, setmatch_type] = useState([]);

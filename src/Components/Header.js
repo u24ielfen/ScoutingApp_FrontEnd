@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "../CSS/Robotics.css";
 import { NavLink } from "react-router-dom";
 
 function Header(props) {
-  const port = "192.168.68.151";
+  const [isLinkEnabled, setIsLinkEnabled] = useState(true);
+  const port = "10.70.1.129";
 
-  const redirect = (link) => {
-    window.location.href = `http://${port}:3000/${link}`;
+  const handleLinkClick = () => {
+    if (isLinkEnabled) {
+      setIsLinkEnabled(false);
+      setTimeout(() => {
+        setIsLinkEnabled(true);
+      }, 5000);
+    }
   };
 
   return (
@@ -19,8 +25,8 @@ function Header(props) {
           {props.link && (
             <NavLink
               to={`${props.link}`}
-              onClick={() => redirect("")}
               style={{ fontSize: "25px", marginTop: "4%", color: "black" }}
+              onClick={handleLinkClick}
             >
               <div className="" style={{ width: "50px" }}>
                 <i

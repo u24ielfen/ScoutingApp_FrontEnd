@@ -148,7 +148,7 @@ function App() {
           path="/games"
           element={
             <>
-              <Header name="Games" />
+              <Header name="Games" link="/" />
               <Games />
               <Footer />
             </>

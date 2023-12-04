@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 function Scouting() {
-  const port = "192.168.68.151";
+  const port = "10.70.1.129";
   const [matchNumber, setMatchNumber] = useState();
   const [matchType, setMatchType] = useState();
   const [teamNumber, setTeamNumber] = useState();

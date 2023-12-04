@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 function Main() {
-  const port = "192.168.68.151";
+  const port = "10.70.1.129";
 
   const [robotList, setRobotList] = useState([]);
   const [autoSuccess, setAutoSuccess] = useState([]);
@@ -83,15 +83,12 @@ function Main() {
     setTeleopShot("Loading...");
     setTeleopSuccess("Loading...");
     setClimbTime("Loading...");
-    const moreInfo = document.getElementsByClassName("moreInfo_appear")[
-      props.array_num
-    ];
-    const arrow = document.getElementsByClassName("rotating_arrow")[
-      props.array_num
-    ];
-    const stats_title = document.getElementsByClassName("showStats_Title")[
-      props.array_num
-    ];
+    const moreInfo =
+      document.getElementsByClassName("moreInfo_appear")[props.array_num];
+    const arrow =
+      document.getElementsByClassName("rotating_arrow")[props.array_num];
+    const stats_title =
+      document.getElementsByClassName("showStats_Title")[props.array_num];
     if (moreInfo && moreInfo.style.display === "none") {
       moreInfo.style.display = "block";
       arrow.style.transform = "rotate(90deg)";
