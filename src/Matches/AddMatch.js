@@ -39,17 +39,33 @@ function AddMatch() {
 
   const [matchType, setMatchType] = useState();
   const submitMatch = () => {
-    Axios.post(`http://${port}:3002/putMatch`, {
-      match_type: matchType,
-      match_number: matchNumber,
-      blue_1: blue_1,
-      blue_2: blue_2,
-      blue_3: blue_3,
-      red_1: red_1,
-      red_2: red_2,
-      red_3: red_3,
-    }).then(() => {});
-    window.location.href = `http://${port}:3000/`;
+    console.log("match type " + matchType);
+    console.log("match num " + matchNumber);
+    Axios.get(
+      `http://${port}:3002/checkMatch?type=${matchType}&number=${matchNumber}`
+    )
+      .then((response) => {
+        if (response.data.length > 0) {
+          alert("Match already exists");
+        } else {
+          Axios.post(`http://${port}:3002/putMatch`, {
+            match_type: matchType,
+            match_number: matchNumber,
+            blue_1: blue_1,
+            blue_2: blue_2,
+            blue_3: blue_3,
+            red_1: red_1,
+            red_2: red_2,
+            red_3: red_3,
+          }).then(() => {
+            window.location.href = `http://${port}:3000/`;
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error checking match:", error);
+        // Handle the error case
+      });
   };
 
   return (
@@ -61,6 +77,18 @@ function AddMatch() {
         paddingBottom: "20px",
       }}
     >
+      <div
+        className="match_exist"
+        style={{
+          backgroundColor: "orange",
+          width: "100%",
+          justifyContent: "center",
+          textAlign: "center",
+          display: "none",
+        }}
+      >
+        This match already exists!
+      </div>
       <br />
       <div className="row">
         <div className="col-2"></div>
@@ -90,7 +118,6 @@ function AddMatch() {
         </div>
       </div>
       <br />
-
       <div className="row d-flex justify-content-center">
         <div className="col-2">Blue</div>
         {matchTeamsBlue_input.map((value, key) => {

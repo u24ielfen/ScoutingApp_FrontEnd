@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 function Scouting() {
-  const port = "10.70.1.129";
+  const port = "192.168.68.136";
   const [matchNumber, setMatchNumber] = useState();
   const [matchType, setMatchType] = useState();
   const [teamNumber, setTeamNumber] = useState();
@@ -39,6 +39,7 @@ function Scouting() {
   const submitMatch = () => {
     Axios.post(`http://${port}:3002/putMatchBot`, {
       match_id: matchID,
+      match_type: matchType,
       team_number: teamNumber,
       auto_Balls_shot: autoBallsShot,
       auto_Balls_success: autoBallsSuccess,
@@ -65,6 +66,7 @@ function Scouting() {
   }, []);
   const [matchInfo, setMatchInfo] = useState([]);
   const addTeamController = (props) => {
+    if (!props.match_id) return alert("Please select a match");
     const addTeam = document.getElementsByClassName("teamStats")[0];
     addTeam.style.display = "block";
     Axios.get(`http://${port}:3002/getOneMatch/${props.match_id}`).then((res) =>
@@ -121,6 +123,7 @@ function Scouting() {
               >
                 <option value="0"> Select Match</option>
                 {matchList.map((value, key) => {
+                  setMatchType(value.match_type);
                   if (value.match_type === 0) {
                     value.match_type = "Qualifier";
                   } else if (value.match_type === 1) {

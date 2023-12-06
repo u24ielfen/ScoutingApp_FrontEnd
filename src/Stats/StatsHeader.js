@@ -6,7 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 function StatsHeader(props) {
   return (
-    <div>
+    <div
+      style={{
+        overflow: "hidden",
+      }}
+    >
       <br />
       <div className="row">
         <div className="col-1"></div>

@@ -26,7 +26,7 @@ function Games() {
   useEffect(() => {
     const checkBoxes = () => {
       const quals = document.getElementsByClassName("Qualifier");
-      const playoff = document.getElementsByClassName("Playoff");
+      const playoffs = document.getElementsByClassName("Playoff");
       const practice = document.getElementsByClassName("Practice");
       if (checkboxValues.quals) {
         Array.from(quals).forEach((element) => {
@@ -38,16 +38,16 @@ function Games() {
         });
       }
       if (checkboxValues.playoffs) {
-        Array.from(playoff).forEach((element) => {
+        Array.from(playoffs).forEach((element) => {
           element.style.display = "block";
         });
       } else {
-        Array.from(playoff).forEach((element) => {
+        Array.from(playoffs).forEach((element) => {
           element.style.display = "none";
         });
       }
       if (checkboxValues.practice) {
-        Array.from(playoff).forEach((element) => {
+        Array.from(practice).forEach((element) => {
           element.style.display = "block";
         });
       } else {

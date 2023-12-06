@@ -158,7 +158,7 @@ function TeamStats() {
             <>
               <p style={{ fontSize: "15px" }}>
                 <span style={{ backgroundColor: "rgb(156, 222, 236)" }}>
-                  Qualifier #{value.match_number}
+                  {value.match_type} #{value.match_number}
                 </span>
               </p>
               <table className="table">
